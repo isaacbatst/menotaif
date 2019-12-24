@@ -1,0 +1,31 @@
+image: alpine:3.10
+default:
+before_script:
+  #Create .ssh directory
+  - apk update
+  - apk add lftp
+  - apk add nodejs
+  - apk add yarn --update
+  - apk add openssh
+  - mkdir -p ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+  - chmod 700 ~/.ssh
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent -s)
+  - ssh-add ~/.ssh/id_rsa
+  - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+
+deploy-production:
+  stage: deploy
+
+  script:
+    - node -v
+    - yarn
+    - yarn build
+    - lftp -d -u $FTP_USERNAME, -e 'set sftp:auto-confirm true; set sftp:connect-program "ssh -a -x -i ~/.ssh/id_rsa"; mirror -Rnev ./build/ /var/www/menotaif.codandomuito.com.br/ -X .* -X .*/; exit' sftp://$FTP_HOST
+    - rm -f ~/.ssh/id_rsa
+  only:
+    - master
+  environment:
+    name: prod
