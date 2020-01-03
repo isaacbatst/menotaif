@@ -22,7 +22,7 @@ function MainContent() {
       id: 1,
       description: "Quanto você tirou?"
     },
-    { pageTitle: "DON'T PANIC", stepTitle: "Reflita", description: "42", id: 2 }
+    { pageTitle: "DON'T PANIC", stepTitle: "Reflita", description: "Estamos no caminho certo?", id: 2 }
   ];
   const [currentProgress, setProgress] = useState(progresses[0]);
 
