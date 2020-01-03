@@ -5,7 +5,7 @@
 .ant-layout{
   background: transparent;
   justify-content: center;
-  margin: 20px;
+  margin: 0 30px;
 }
 
 .ant-layout-header{
@@ -14,6 +14,7 @@
   font-size: 24px;
   text-align: center;
   line-height: 1.5em;
+  height: auto;
 }
 
 .ant-layout-content{
@@ -25,4 +26,14 @@
 
 .ant-steps-item{
   flex: 1 !important;
+}
+
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: #eaeaea;
+}
+
+@media (min-width: 480px){
+  .ant-steps{
+    text-align: center;
+  }
 }
