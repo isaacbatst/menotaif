@@ -1,16 +1,13 @@
-import React from 'react';
-import { Button } from 'antd';
-import './App.css';
+import React from "react";
+import MainContent from './components/MainContent';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Calcule suas notas na Web
-        </p>
-        <Button type="primary">Butão</Button>
-      </header>
+      <div id="main-fluid">
+        <MainContent />
+      </div>
     </div>
   );
 }

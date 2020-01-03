@@ -1,0 +1,28 @@
+.ant-row{
+  margin: 20px 0px;
+}
+
+.ant-layout{
+  background: transparent;
+  justify-content: center;
+  margin: 20px;
+}
+
+.ant-layout-header{
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.ant-layout-content{
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ant-steps-item{
+  flex: 1 !important;
+}
