@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,14 +11,7 @@ function App() {
         <p>
           Calcule suas notas na Web
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Em breve
-        </a>
+        <Button type="primary">Butão</Button>
       </header>
     </div>
   );
