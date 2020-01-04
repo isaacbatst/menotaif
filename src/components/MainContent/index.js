@@ -40,7 +40,7 @@ function MainContent() {
 
   return (
     <Layout>
-      <Header>Me nota IF!</Header>
+      <Header>Me Nota IF!</Header>
       <Content>
         <Row>
           <Title id="page-progress-title" level={2}>{currentProgress.pageTitle}</Title>
