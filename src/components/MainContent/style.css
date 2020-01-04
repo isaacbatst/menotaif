@@ -1,14 +1,13 @@
-.ant-row{
+.ant-row {
   margin: 20px 0px;
 }
 
-.ant-layout{
+.ant-layout {
   background: transparent;
   justify-content: center;
-  margin: 0 30px;
 }
 
-.ant-layout-header{
+.ant-layout-header {
   background: transparent;
   color: white;
   font-size: 24px;
@@ -17,23 +16,30 @@
   height: auto;
 }
 
-.ant-layout-content{
+.ant-layout-content {
   flex-grow: 0;
   display: flex;
   flex-direction: column;
+  margin: 0 40px;
   justify-content: center;
 }
 
-.ant-steps-item{
+.ant-steps-item {
   flex: 1 !important;
 }
 
-.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
-  color: #eaeaea;
+.grade-type-button {
+  height: 5em;
 }
 
-@media (min-width: 480px){
-  .ant-steps{
+@media (max-width: 660px) and (min-width: 480px) {
+  .ant-steps-horizontal:not(.ant-steps-label-vertical)
+    .ant-steps-item-description {
+    max-width: 94px;
+  }
+}
+@media (min-width: 660px){
+  .ant-steps {
     text-align: center;
   }
 }
