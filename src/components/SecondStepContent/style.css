@@ -1,0 +1,21 @@
+#second-step-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+#calc-button{
+  height: 5em;
+  font-size: 1em;
+}
+
+.grade-input{
+  width: 100%;
+}
+
+.ant-input-number-lg, .ant-input-number-lg input{
+  height: 4em;
+}
+
+.ant-input-number-lg{
+  font-size: 1em;
+}

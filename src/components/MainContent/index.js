@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Row, Col, Steps, Layout } from "antd";
-import GradeTypeButton from "../GradeTypeButton/";
-
-import { gradeTypeButtons } from "../../constants/elements";
+import { Row, Steps, Layout } from "antd";
 
 import "./style.css";
+import Title from "antd/lib/typography/Title";
+import FirstStepContent from "../FirstStepContent";
+import SecondStepContent from "../SecondStepContent";
 
 function MainContent() {
   const { Header, Content } = Layout;
@@ -14,29 +14,38 @@ function MainContent() {
       pageTitle: "Escolha o tipo de matéria",
       stepTitle: "Escolha",
       id: 0,
-      description: "Tipo da matéria"
+      description: "Tipo da matéria",
+      content: (
+        <FirstStepContent
+          onClickHandler={() => setCurrentProgress(progresses[1])}
+        />
+      )
     },
     {
       pageTitle: "Preencha com suas notas já existentes",
       stepTitle: "Preencha",
       id: 1,
-      description: "Quanto você tirou?"
+      description: "Quanto você tirou?",
+      content: <SecondStepContent />
     },
-    { pageTitle: "DON'T PANIC", stepTitle: "Reflita", description: "Estamos no caminho certo?", id: 2 }
+    {
+      pageTitle: "DON'T PANIC",
+      stepTitle: "Reflita",
+      description: "Estamos no caminho certo?",
+      id: 2,
+      content: <Title level={2}>60</Title>
+    }
   ];
-  const [currentProgress, setProgress] = useState(progresses[0]);
+  const [currentProgress, setCurrentProgress] = useState(progresses[0]);
 
   return (
     <Layout>
-      <Header>{currentProgress.pageTitle}</Header>
+      <Header>Me nota IF!</Header>
       <Content>
-        <Row gutter={40}>
-          {gradeTypeButtons.map(({ label }, index) => (
-            <Col key={index} span={12} onClick={() => setProgress(progresses[currentProgress.id+1])}>
-              <GradeTypeButton label={label} index={index} />
-            </Col>
-          ))}
+        <Row>
+          <Title id="page-progress-title" level={2}>{currentProgress.pageTitle}</Title>
         </Row>
+        {currentProgress.content}
         <Steps current={currentProgress.id}>
           {progresses.map(({ stepTitle, description }, index) => (
             <Step key={index} title={stepTitle} description={description} />
