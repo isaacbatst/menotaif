@@ -33,7 +33,7 @@
   padding: 0 20px;
 }
 
-.ant-layout-content h2 {
+.ant-layout-content h2, h1 {
   color: white;
 }
 
