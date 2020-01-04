@@ -24,6 +24,10 @@
   justify-content: center;
 }
 
+.ant-steps{
+  margin-top: 10px;
+}
+
 .ant-steps-item {
   flex: 1 !important;
 }
