@@ -1,21 +1,26 @@
 import React from "react";
-import { Row, Col, InputNumber, Button } from "antd";
+import { useSelector } from "react-redux";
+import { Row, Col, Button } from "antd";
+import GradeInput from "./GradeInput";
+import gradeTypes from "../../constants/gradeTypes";
+import "./style.scss";
 
-import "./style.css";
+export default ({ dispatchNextStep }) => {
+  const gradeType = useSelector(state => state.steps.gradeType);
+  const currentGradeType = gradeTypes[gradeType];
 
-export default ({ gradeType }) => {
   return (
     <>
-      <Row id="second-step-row" gutter={40}>
-        <Col xs={8} md={3}>
-          <InputNumber className="grade-input" min={0} max={100} size="large" step={1} />
-        </Col>
-        <Col xs={8} md={3}>
-          <InputNumber className="grade-input" min={0} max={100} size="large" step={1} />
-        </Col>
+      <Row className="second-step-row" type="flex" justify="center" gutter={{ lg: 50, md: 30, sm: 20, xs: 10 }}>
+        {currentGradeType.grades.map(({ label }, index) => (
+          <Col xs={12} xl={6} key={index}>
+            <span className="grade-label">{label}</span>
+            <GradeInput />
+          </Col>
+        ))}
       </Row>
       <Row style={{ display: "flex", justifyContent: "center" }}>
-        <Col span={12}>
+        <Col xs={12} md={6}>
           <Button size="large" id="calc-button" block type="primary">
             Calcular
           </Button>

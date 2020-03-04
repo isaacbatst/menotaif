@@ -1,15 +1,17 @@
+@import "../../styles/main.scss";
+
 .ant-row {
   margin: 20px 0px;
 }
 
-#page-progress-title{
+#page-progress-title {
   text-align: center;
 }
 
 .ant-layout {
   background: transparent;
   flex: 1;
-  background-color: #ff7a45;
+  background-color: $light-yellow;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,9 +21,10 @@
 }
 
 .ant-layout-header {
-  background: transparent;
+  background: #d22e2e;
   color: white;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  box-shadow: 0px -16px 40px 9px rgba(1, 1, 1, 0.75);
+  font-size: 0.7em;
   text-align: center;
 }
 
@@ -33,7 +36,8 @@
   padding: 0 20px;
 }
 
-.ant-layout-content h2, h1 {
+.ant-layout-content h2,
+h1 {
   color: white;
 }
 
@@ -45,25 +49,33 @@
   > .ant-steps-item-container
   > .ant-steps-item-content
   > .ant-steps-item-title {
-  color: white;
+  color: #222;
 }
 
 .ant-steps-item-process
   > .ant-steps-item-container
   > .ant-steps-item-content
   > .ant-steps-item-description {
-  color: #f2f2f2b9;
+  color: #444;
 }
 
 .ant-steps-item-finish
   > .ant-steps-item-container
   > .ant-steps-item-content
   > .ant-steps-item-title {
-  color: white;
+  color: #666;
 }
 
 .ant-steps-item {
   flex: 1 !important;
+}
+
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
+  background-color: #ddd;
+}
+
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
+  background-color: #ddd;
 }
 
 @media (max-width: 660px) and (min-width: 480px) {

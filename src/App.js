@@ -1,12 +1,16 @@
 import React from "react";
-import MainContent from "./components/MainContent";
-import "./App.css";
+import { Provider } from "react-redux";
+import Content from "./components/Content";
+import store from "./store";
+import "./styles/index.scss";
 
 function App() {
   return (
-    <div className="App">
-      <MainContent />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Content />
+      </div>
+    </Provider>
   );
 }
 
