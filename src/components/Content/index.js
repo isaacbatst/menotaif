@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Title from "antd/lib/typography/Title";
 import { pageInit, setNextStep } from "../../store/actions/steps";
@@ -8,6 +8,10 @@ import "./style.scss";
 
 function Content() {
   const dispatch = useDispatch();
+  const dispatchNextStepCallback = useCallback(() => {
+    const dispatchNextStep = payload => dispatch(setNextStep(payload));
+    dispatch(pageInit({ dispatchNextStep }));
+  }, [dispatch]);
   const steps = useSelector(state => state.steps.steps);
   const currentStep = useSelector(state => state.steps.currentStep);
   const { Header, Content: Main } = Layout;
@@ -15,10 +19,8 @@ function Content() {
   const currentProgress = steps[currentStep];
 
   useEffect(() => {
-    const dispatchNextStep = payload => dispatch(setNextStep(payload));
-
-    dispatch(pageInit({ dispatchNextStep }));
-  }, []);
+    dispatchNextStepCallback();
+  }, [dispatchNextStepCallback]);
 
   return (
     <Layout>

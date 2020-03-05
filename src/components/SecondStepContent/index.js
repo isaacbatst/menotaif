@@ -29,7 +29,7 @@ export default ({ dispatchNextStep }) => {
     } else {
       setButtonDisabled(true)
     }
-  }, [grades]);
+  }, [grades, gradesObject, selectedGradeType]);
 
   return (
     <>
