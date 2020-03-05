@@ -2,23 +2,26 @@ import React from "react";
 import { Row, Col } from "antd";
 import GradeTypeButton from "../GradeTypeButton";
 
-import gradeTypes from "../../constants/gradeTypes";
+import SUBJECT_TYPES from "../../constants/subjectTypes";
 
 import "./style.scss";
 
 export default ({ dispatchNextStep }) => {
-  const handleGradeTypeClick = index => {
+  const handleGradeTypeClick = gradeKey => {
     dispatchNextStep({
       currentStep: 1,
-      gradeType: index
+      subjectType: SUBJECT_TYPES[gradeKey]
     });
-  }
-
+  };
   return (
     <Row gutter={40}>
-      {gradeTypes.map(({ label }, index) => (
+      {Object.entries(SUBJECT_TYPES).map(([key, { label }], index) => (
         <Col key={index} span={12}>
-          <GradeTypeButton label={label} index={index}  onClick={() =>  handleGradeTypeClick(index)}/>
+          <GradeTypeButton
+            label={label}
+            type={key}
+            onClick={() => handleGradeTypeClick(key)}
+          />
         </Col>
       ))}
     </Row>

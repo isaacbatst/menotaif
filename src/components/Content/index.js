@@ -28,7 +28,7 @@ function Content() {
       <Main>
         {currentStep !== null && (
           <>
-            <Title id="page-progress-title" level={2}></Title>
+            <Title id="page-progress-title" level={2} >{currentProgress.pageTitle}</Title>
             {currentProgress.content}
             <Steps current={currentProgress.id}>
               {steps.map(({ stepTitle, description }, index) => (

@@ -9,14 +9,19 @@
     margin-right: 5em!important;
   }
 
-  .grade-label{
-    font-size: 0.7em;
+  .grade-col {
+    text-align: center;
+
+    .grade-label{
+      font-size: 0.7em;
+    }
   }
 }
 
 #calc-button{
   font-size: 1em;
   height: 2.3em;
+  margin-bottom: 6px;
 }
 
 .grade-input{

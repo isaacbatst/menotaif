@@ -14,9 +14,9 @@ export default ({ dispatchNextStep }) => {
     },
     {
       id: 1,
-      pageTitle: "Preencha suas notas",
+      pageTitle: "Preencha as notas",
       stepTitle: "Preencha",
-      description: "Quanto você tirou?",
+      description: "Quanto você tirou? (ou está pensando em tirar...)",
       content: <SecondStepContent dispatchNextStep={dispatchNextStep} />
     },
     {
