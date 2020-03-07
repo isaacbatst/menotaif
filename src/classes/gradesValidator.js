@@ -23,12 +23,12 @@ export default ({ selectedGradeType }) => {
   }
 
   return {
-    validate: inputs => {
+    validate: grades => {
       switch(selectedGradeType){
         case SUBJECT_TYPES.annual.type:
-          return validateAnnualGrade(inputs);
+          return validateAnnualGrade(grades);
         case SUBJECT_TYPES.semiannual.type:
-          return validateSemiannualGrade(inputs);
+          return validateSemiannualGrade(grades);
         default:
           throw new Error("Tipo de matéria inválido");
       }
