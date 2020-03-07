@@ -14,9 +14,9 @@ export default ({ dispatchNextStep }) => {
     });
   };
   return (
-    <Row gutter={40}>
+    <Row gutter={40} id="first-step-row" justify="center" type="flex" >
       {Object.entries(SUBJECT_TYPES).map(([key, { label }], index) => (
-        <Col key={index} span={12}>
+        <Col key={index} xs={12} md={6}>
           <GradeTypeButton
             label={label}
             type={key}

@@ -51,7 +51,7 @@ export default ({ dispatchNextStep }) => {
           <Button size="large" disabled={buttonDisabled} id="calc-button" block type="primary">
             Calcular
           </Button>
-          <Button type="ghost" block onClick={handleBackButton}>
+          <Button type="danger" block onClick={handleBackButton}>
             Voltar
           </Button>
         </Col>

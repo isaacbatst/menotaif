@@ -14,6 +14,7 @@
 
     .grade-label{
       font-size: 0.7em;
+      white-space: nowrap;
     }
   }
 }
@@ -34,4 +35,9 @@
 
 .ant-input-number-lg{
   font-size: 1em;
+}
+
+.ant-btn-danger{
+  background-color: $red;
+  border-color: $red;
 }

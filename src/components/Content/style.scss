@@ -12,10 +12,6 @@
   background: transparent;
   flex: 1;
   background-color: $light-green;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -29,11 +25,8 @@
 }
 
 .ant-layout-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 0 20px;
+  min-height: 100vh;
 }
 
 .ant-layout-content h2,
@@ -43,6 +36,7 @@ h1 {
 
 #page-progress-title {
   font-size: 2em;
+  margin: 1em 0;
 }
 
 .ant-steps {
