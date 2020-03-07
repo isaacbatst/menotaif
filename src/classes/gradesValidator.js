@@ -30,7 +30,7 @@ export default ({ selectedGradeType }) => {
         case SUBJECT_TYPES.semiannual.type:
           return validateSemiannualGrade(inputs);
         default:
-          break;
+          throw new Error("Tipo de matéria inválido");
       }
     }
   }

@@ -13,6 +13,7 @@ export default ({ dispatchNextStep }) => {
       subjectType: SUBJECT_TYPES[gradeKey]
     });
   };
+  
   return (
     <Row gutter={40} id="first-step-row" justify="center" type="flex" >
       {Object.entries(SUBJECT_TYPES).map(([key, { label }], index) => (

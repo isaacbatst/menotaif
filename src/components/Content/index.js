@@ -8,15 +8,16 @@ import "./style.scss";
 
 function Content() {
   const dispatch = useDispatch();
-  const dispatchNextStepCallback = useCallback(() => {
-    const dispatchNextStep = payload => dispatch(setNextStep(payload));
-    dispatch(pageInit({ dispatchNextStep }));
-  }, [dispatch]);
   const steps = useSelector(state => state.steps.steps);
   const currentStep = useSelector(state => state.steps.currentStep);
   const { Header, Content: Main } = Layout;
   const { Step } = Steps;
   const currentProgress = steps[currentStep];
+  
+  const dispatchNextStepCallback = useCallback(() => {
+    const dispatchNextStep = payload => dispatch(setNextStep(payload));
+    dispatch(pageInit({ dispatchNextStep }));
+  }, [dispatch]);
 
   useEffect(() => {
     dispatchNextStepCallback();
