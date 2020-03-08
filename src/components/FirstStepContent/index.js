@@ -10,7 +10,7 @@ export default ({ dispatchNextStep }) => {
   const handleGradeTypeClick = gradeKey => {
     dispatchNextStep({
       currentStep: 1,
-      subjectType: SUBJECT_TYPES[gradeKey]
+      subject: SUBJECT_TYPES[gradeKey]
     });
   };
   

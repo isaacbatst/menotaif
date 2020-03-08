@@ -9,8 +9,8 @@ import GradesValidator from "../../classes/gradesValidator";
 export default ({ dispatchNextStep }) => {
   const dispatch = useDispatch();
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const gradesObject = useSelector(state => state.steps.subjectType.grades);
-  const selectedGradeType = useSelector(state => state.steps.subjectType.type);
+  const gradesObject = useSelector(state => state.steps.subject.grades);
+  const selectedGradeType = useSelector(state => state.steps.subject.type);
   const [gradesValidator, setGradesValidator] = useState(
     GradesValidator({ selectedGradeType })
   );

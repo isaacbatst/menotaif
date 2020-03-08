@@ -5,7 +5,7 @@ import update from "immutability-helper";
 const INITIAL_STATE = {
   steps: [],
   currentStep: null,
-  subjectType: null
+  subject: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -25,7 +25,7 @@ export default (state = INITIAL_STATE, action) => {
       });
     case Types.CHANGE_INPUT_VALUE:
       return update(state, {
-        subjectType: {
+        subject: {
           grades: {
             [action.payload.type]: {
               value: { $set: action.payload.value }
