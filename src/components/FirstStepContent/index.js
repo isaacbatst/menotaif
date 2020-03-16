@@ -13,9 +13,9 @@ export default ({ dispatchNextStep }) => {
       subject: SUBJECT_TYPES[gradeKey]
     });
   };
-  
+
   return (
-    <Row gutter={40} id="first-step-row" justify="center" type="flex" >
+    <Row gutter={40} id="first-step-row" justify="center" type="flex">
       {Object.entries(SUBJECT_TYPES).map(([key, { label }], index) => (
         <Col key={index} xs={12} md={6}>
           <GradeTypeButton

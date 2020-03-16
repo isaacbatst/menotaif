@@ -37,9 +37,9 @@ export default ({ dispatchNextStep }) => {
   }, [grades, gradesValidator, gradesObject, selectedGradeType]);
 
   return (
-    <>
+    <div id="second-step-wrapper">
       <Row
-        className="second-step-row"
+        className="grades-row"
         type="flex"
         justify="center"
         gutter={{ lg: 50, md: 30, sm: 20, xs: 10 }}
@@ -51,7 +51,7 @@ export default ({ dispatchNextStep }) => {
           </Col>
         ))}
       </Row>
-      <Row style={{ display: "flex", justifyContent: "center" }}>
+      <Row className="buttons-row" style={{ display: "flex", justifyContent: "center" }}>
         <Col xs={12} md={6} className="text-align-center">
           <Button
             size="large"
@@ -67,6 +67,6 @@ export default ({ dispatchNextStep }) => {
           </Button>
         </Col>
       </Row>
-    </>
+    </div>
   );
 };

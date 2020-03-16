@@ -4,8 +4,22 @@
   margin: 20px 0px;
 }
 
+.container {
+  &.banner {
+    background-color: $green;
+  }
+
+  &.steps {
+    flex: 1;
+  }
+
+  padding: 10px 20px;
+}
+
 #page-progress-title {
   text-align: center;
+  margin: 0.7em 0;
+  font-size: 2em;
 }
 
 .ant-layout {
@@ -19,14 +33,16 @@
 .ant-layout-header {
   background: $red;
   color: white;
-  box-shadow: 0px -16px 40px 9px rgba(1, 1, 1, 0.75);
+  box-shadow: 0px -0.9px 9.3px 0.9px rgba(1, 1, 1, 0.75);
   font-size: 0.7em;
   text-align: center;
+  position: relative;
 }
 
 .ant-layout-content {
-  padding: 0 20px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .ant-layout-content h2,
@@ -34,46 +50,42 @@ h1 {
   color: white;
 }
 
-#page-progress-title {
-  font-size: 2em;
-  margin: 1em 0;
-}
-
 .ant-steps {
   margin-top: 10px;
-}
 
-.ant-steps-item-process
-  > .ant-steps-item-container
-  > .ant-steps-item-content
-  > .ant-steps-item-title {
-  color: #222;
-}
+  .ant-steps-item {
+    flex: 1 !important;
 
-.ant-steps-item-process
-  > .ant-steps-item-container
-  > .ant-steps-item-content
-  > .ant-steps-item-description {
-  color: #444;
-}
-
-.ant-steps-item-finish
-  > .ant-steps-item-container
-  > .ant-steps-item-content
-  > .ant-steps-item-title {
-  color: #666;
-}
-
-.ant-steps-item {
-  flex: 1 !important;
-}
-
-.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
-  background-color: #ddd;
-}
-
-.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
-  background-color: #ddd;
+    &.ant-steps-item-process{
+      .ant-steps-item-title {
+        color: #222;
+  
+        &::after{
+          background-color: #ddd;
+        }
+      }
+      .ant-steps-item-description {
+        color: #444;
+      }
+    }
+  
+    &.ant-steps-item-finish{
+      .ant-steps-item-title {
+        color: #444;
+      }
+      .ant-steps-item-description {
+        color: #444;
+      }
+    }
+  
+    &.ant-steps-item-wait{
+      .ant-steps-item-title{
+        &::after{
+          background-color: #ddd;
+        }
+      }
+    }  
+  }
 }
 
 @media (max-width: 660px) and (min-width: 480px) {

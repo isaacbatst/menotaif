@@ -1,8 +1,9 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Title from "antd/lib/typography/Title";
 import { pageInit, setNextStep } from "../../store/actions/steps";
-import { Steps, Layout } from "antd";
+import StepsCounter from "./StepsCounter";
+import { Layout } from "antd";
+import Title from "antd/lib/typography/Title";
 
 import "./style.scss";
 
@@ -11,9 +12,8 @@ function Content() {
   const steps = useSelector(state => state.steps.steps);
   const currentStep = useSelector(state => state.steps.currentStep);
   const { Header, Content: Main } = Layout;
-  const { Step } = Steps;
   const currentProgress = steps[currentStep];
-  
+
   const dispatchNextStepCallback = useCallback(() => {
     const dispatchNextStep = payload => dispatch(setNextStep(payload));
     dispatch(pageInit({ dispatchNextStep }));
@@ -31,13 +31,17 @@ function Content() {
       <Main>
         {currentStep !== null && (
           <>
-            <Title id="page-progress-title" level={2} >{currentProgress.pageTitle}</Title>
-            {currentProgress.content}
-            <Steps current={currentProgress.id}>
-              {steps.map(({ stepTitle, description }, index) => (
-                <Step key={index} title={stepTitle} description={description} />
-              ))}
-            </Steps>
+            <div className="container banner">
+              <Title id="page-progress-title" level={2}>
+                {currentProgress.pageTitle}
+              </Title>
+            </div>
+            <div className="container main">
+              {currentProgress.content}
+            </div>
+            <div className="container steps">
+            <StepsCounter currentProgress={currentProgress} steps={steps} />
+            </div>
           </>
         )}
       </Main>

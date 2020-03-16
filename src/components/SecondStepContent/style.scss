@@ -1,43 +1,51 @@
-@import '../../styles/main';
+@import "../../styles/main";
 
-.second-step-row{
+#second-step-wrapper {
+  margin-bottom: 2.5em;
 
-  color: #222;
-  
-  @include md {
-    margin-left: 5em!important;
-    margin-right: 5em!important;
-  }
+  .grades-row {
+    color: #222;
 
-  .grade-col {
-    text-align: center;
+    @include md {
+      margin-left: 5em !important;
+      margin-right: 5em !important;
+    }
 
-    .grade-label{
-      font-size: 0.7em;
-      white-space: nowrap;
+    .grade-col {
+      text-align: center;
+      margin: 5px 0px;
+
+      .grade-label {
+        font-size: 0.9rem;
+        line-height: 2.2;
+        white-space: nowrap;
+      }
+    }
+
+    .grade-input {
+      width: 100%;
+    }
+
+    .ant-input-number-lg,
+    .ant-input-number-lg input {
+      text-align: center;
+    }
+
+    .ant-input-number-lg {
+      font-size: 1em;
     }
   }
-}
 
-#calc-button{
-  font-size: 1em;
-  height: 2.3em;
-  margin-bottom: 6px;
-}
+  .buttons-row {
+    #calc-button {
+      font-size: 1em;
+      height: 2.3em;
+      margin-bottom: 6px;
+    }
 
-.grade-input{
-  width: 100%;
-}
-
-.ant-input-number-lg, .ant-input-number-lg input{
-  text-align: center;
-}
-
-.ant-input-number-lg{
-  font-size: 1em;
-}
-
-.ant-btn-danger{
-  background-color: $red;
-  border-color: $red;
+    .ant-btn-danger {
+      background-color: $red;
+      border-color: $red;
+    }
+  }
 }
