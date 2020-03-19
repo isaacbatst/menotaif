@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Row, Col, Button } from "antd";
 import * as StepsActions from "../../store/actions/steps";
 import "./style.scss";
 import GradesValidator from "../../classes/gradesValidator";
