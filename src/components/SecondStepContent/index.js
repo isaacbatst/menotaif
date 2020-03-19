@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Row, Col, Button, Alert } from "antd";
-import GradeInput from "./GradeInput";
+import { Row, Col, Button } from "antd";
 import * as StepsActions from "../../store/actions/steps";
 import "./style.scss";
 import GradesValidator from "../../classes/gradesValidator";
+import FeedbackAlertRow from "./FeedbackAlertRow";
+import GradesRow from "./GradesRow";
+import ButtonsRow from "./ButtonsRow";
 
 export default ({ dispatchNextStep }) => {
   const dispatch = useDispatch();
@@ -20,7 +22,7 @@ export default ({ dispatchNextStep }) => {
     setGradesValidator(GradesValidator({ selectedGradeType }));
   }, [selectedGradeType]);
 
-  const handleBackButton = () => {
+  const handleBackButtonClick = () => {
     dispatchNextStep({ currentStep: 0, subjectType: null });
   };
 
@@ -38,43 +40,9 @@ export default ({ dispatchNextStep }) => {
 
   return (
     <div id="second-step-wrapper">
-      <Row
-        className="grades-row"
-        type="flex"
-        justify="center"
-        gutter={{ lg: 50, md: 30, sm: 20, xs: 10 }}
-      >
-        {grades.map(([key, { label }], index) => (
-          <Col xs={12} lg={6} xl={4} key={index} className="grade-col">
-            <span className="grade-label">{label}</span>
-            <GradeInput onInputChange={handleInputChange(key)} />
-          </Col>
-        ))}
-      </Row>
-      <Row id="message-row" type="flex" justify="center">
-        <Col xs={24} sm={16} lg={10} xl={8}>
-          <Alert message="Você precisa tirar 84 na prova final" type="warning" />
-        </Col>
-      </Row>
-      <Row
-        className="buttons-row"
-        style={{ display: "flex", justifyContent: "center" }}
-      >
-        <Col xs={12} md={6} className="text-align-center">
-          <Button
-            size="large"
-            disabled={buttonDisabled}
-            id="calc-button"
-            block
-            type="primary"
-          >
-            Calcular
-          </Button>
-          <Button type="danger" block onClick={handleBackButton}>
-            Voltar
-          </Button>
-        </Col>
-      </Row>
+      <GradesRow grades={grades} onInputChange={handleInputChange} />
+      <FeedbackAlertRow />
+      <ButtonsRow onClick={handleBackButtonClick} buttonDisabled={buttonDisabled} />
     </div>
   );
 };
