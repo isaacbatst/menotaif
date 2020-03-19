@@ -1,15 +1,22 @@
 @import "../../styles/main";
 
 #second-step-wrapper {
-  margin-bottom: 2.5em;
+
+  @include md {
+    margin-left: 5em !important;
+    margin-right: 5em !important;
+  }
+
+  #message-row {
+    margin-top: 0.6em;
+
+    .ant-alert {
+      text-align: center;
+    }
+  }
 
   .grades-row {
     color: #222;
-
-    @include md {
-      margin-left: 5em !important;
-      margin-right: 5em !important;
-    }
 
     .grade-col {
       text-align: center;

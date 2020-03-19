@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Row, Col, Button } from "antd";
+import { Row, Col, Button, Alert } from "antd";
 import GradeInput from "./GradeInput";
 import * as StepsActions from "../../store/actions/steps";
 import "./style.scss";
@@ -51,7 +51,15 @@ export default ({ dispatchNextStep }) => {
           </Col>
         ))}
       </Row>
-      <Row className="buttons-row" style={{ display: "flex", justifyContent: "center" }}>
+      <Row id="message-row" type="flex" justify="center">
+        <Col xs={24} sm={16} lg={10} xl={8}>
+          <Alert message="Você precisa tirar 84 na prova final" type="warning" />
+        </Col>
+      </Row>
+      <Row
+        className="buttons-row"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
         <Col xs={12} md={6} className="text-align-center">
           <Button
             size="large"

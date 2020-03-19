@@ -5,15 +5,16 @@
 }
 
 .container {
+  padding: 10px 20px;
+
   &.banner {
-    background-color: $green;
+    background-color: $purple;
   }
 
   &.steps {
     flex: 1;
+    padding-bottom: 20px;
   }
-
-  padding: 10px 20px;
 }
 
 #page-progress-title {
@@ -24,10 +25,12 @@
 
 .ant-layout {
   background: transparent;
-  flex: 1;
+  min-height: 100vh;
   background-color: $light-green;
   font-size: calc(10px + 2vmin);
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .ant-layout-header {
@@ -40,9 +43,7 @@
 }
 
 .ant-layout-content {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  flex: 1;
 }
 
 .ant-layout-content h2,

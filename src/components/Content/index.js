@@ -25,10 +25,10 @@ function Content() {
 
   return (
     <Layout>
-      <Header>
+      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
         <Title>Me nota IF!</Title>
       </Header>
-      <Main>
+      <Main className="site-layout" style={{ marginTop: 64 }}>
         {currentStep !== null && (
           <>
             <div className="container banner">
