@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { pageInit, setNextStep } from "../../store/actions/steps";
+import React from "react";
+import { useSelector } from "react-redux";
 import StepsCounter from "./StepsCounter";
 import { Layout } from "antd";
 import Title from "antd/lib/typography/Title";
@@ -8,20 +7,10 @@ import Title from "antd/lib/typography/Title";
 import "./style.scss";
 
 function Content() {
-  const dispatch = useDispatch();
   const steps = useSelector(state => state.steps.steps);
   const currentStep = useSelector(state => state.steps.currentStep);
   const { Header, Content: Main } = Layout;
   const currentProgress = steps[currentStep];
-
-  const dispatchNextStepCallback = useCallback(() => {
-    const dispatchNextStep = payload => dispatch(setNextStep(payload));
-    dispatch(pageInit({ dispatchNextStep }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatchNextStepCallback();
-  }, [dispatchNextStepCallback]);
 
   return (
     <Layout>
@@ -40,7 +29,7 @@ function Content() {
               {currentProgress.content}
             </div>
             <div className="container steps">
-            <StepsCounter currentProgress={currentProgress} steps={steps} />
+              <StepsCounter currentProgress={currentProgress} steps={steps} />
             </div>
           </>
         )}

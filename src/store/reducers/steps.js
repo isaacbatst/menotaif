@@ -1,24 +1,15 @@
-import getSteps from "../../constants/steps";
+import steps from "../../constants/steps";
 import Types from "../types/steps";
 import update from "immutability-helper";
 
 const INITIAL_STATE = {
-  steps: [],
-  currentStep: null,
+  steps,
+  currentStep: 0,
   subject: null
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case Types.PAGE_INIT:
-      return update(state, {
-        currentStep: {
-          $set: 0
-        },
-        steps: {
-          $set: getSteps(action.payload)
-        }
-      })
     case Types.SET_NEXT_STEP:
       return update(state, {
         $merge: action.payload

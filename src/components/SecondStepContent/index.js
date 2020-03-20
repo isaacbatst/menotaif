@@ -7,7 +7,7 @@ import FeedbackAlertRow from "./FeedbackAlertRow";
 import GradesRow from "./GradesRow";
 import ButtonsRow from "./ButtonsRow";
 
-export default ({ dispatchNextStep }) => {
+export default () => {
   const dispatch = useDispatch();
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const gradesObject = useSelector(state => state.steps.subject.grades);
@@ -22,7 +22,7 @@ export default ({ dispatchNextStep }) => {
   }, [selectedGradeType]);
 
   const handleBackButtonClick = () => {
-    dispatchNextStep({ currentStep: 0, subjectType: null });
+    dispatch(StepsActions.setNextStep({ currentStep: 0, subjectType: null }));
   };
 
   const handleInputChange = type => {

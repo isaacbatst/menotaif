@@ -1,17 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux"
 import { Row, Col } from "antd";
 import GradeTypeButton from "../GradeTypeButton";
 
 import SUBJECT_TYPES from "../../constants/subjectTypes";
+import { setNextStep } from "../../store/actions/steps";
 
 import "./style.scss";
 
-export default ({ dispatchNextStep }) => {
+export default () => {
+  const dispatch = useDispatch();
+
   const handleGradeTypeClick = gradeKey => {
-    dispatchNextStep({
+    dispatch(setNextStep({
       currentStep: 1,
       subject: SUBJECT_TYPES[gradeKey]
-    });
+    }));
   };
 
   return (
