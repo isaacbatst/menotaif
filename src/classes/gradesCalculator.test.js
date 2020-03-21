@@ -28,3 +28,26 @@ describe("tests grades calculator for annual subjects", () => {
     expect(needed.type).toEqual(GRADES_TYPES.finalGrade);
   })
 })
+
+describe("tests grades calculator for semmiannual subjects", () => {
+  const { calculateGrades } = createGradesCalculator(SUBJECT_TYPES.semiannual.type)
+
+  it("should calculate correctly your needed second grade", () => {
+    const { needed } = calculateGrades({
+      firstGrade: 50,
+    })
+  
+    expect(needed.value).toBe(67);
+    expect(needed.type).toEqual(GRADES_TYPES.secondGrade);
+  })
+
+  it("should calculate correctly your needed final grade", () => {
+    const { needed } = calculateGrades({
+      firstGrade: 50,
+      secondGrade:60,
+    })
+  
+    expect(needed.value).toBe(60);
+    expect(needed.type).toEqual(GRADES_TYPES.finalGrade);
+  })
+})
