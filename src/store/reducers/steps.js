@@ -1,7 +1,7 @@
 import update from "immutability-helper";
 import createGradesCalculator from "../../classes/gradesCalculator";
+import generateFeedback from "../../classes/feedbackGenerator";
 import STEPS from "../../constants/steps";
-import POSITIVE_FEEDBACKS from "../../constants/positiveFeedbacks";
 import Types from "../types/steps";
 
 const INITIAL_STATE = {
@@ -27,16 +27,15 @@ export default (state = INITIAL_STATE, action) => {
         }
       });
     case Types.CALCULATE_GRADE:
-      const gradesCalculator = createGradesCalculator(state.subject.type);
-      const calculated = gradesCalculator.calculateGrades(action.payload.grades);
-
-      if (calculated.currentAverage >= 60) {
-        calculated.feedback = POSITIVE_FEEDBACKS[Math.floor(Math.random() * POSITIVE_FEEDBACKS.length)]
-      }
-
+      const { calculateGrades } = createGradesCalculator(state.subject.type);
+      const calculatedGrades = calculateGrades(action.payload.grades);
+      console.log(calculatedGrades)
       return update(state, {
         subject: {
-          $merge: calculated
+          $merge: {
+            ...calculatedGrades,
+            feedback: generateFeedback(calculatedGrades)
+          }
         }
       })
     default:
