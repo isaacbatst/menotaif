@@ -1,15 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import StepsCounter from "./StepsCounter";
 import { Layout } from "antd";
 import Title from "antd/lib/typography/Title";
+import Main from "./Main";
+import FooterContent from './Footer';
 
 import "./style.scss";
 
-function Content() {
+export default () => {
   const steps = useSelector(state => state.steps.steps);
   const currentStep = useSelector(state => state.steps.currentStep);
-  const { Header, Content: Main } = Layout;
+  const { Header, Content, Footer } = Layout;
   const currentProgress = steps[currentStep];
 
   return (
@@ -17,25 +18,12 @@ function Content() {
       <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
         <Title>Me nota IF!</Title>
       </Header>
-      <Main className="site-layout" style={{ marginTop: 64 }}>
-        {currentStep !== null && (
-          <>
-            <div className="container banner">
-              <Title id="page-progress-title" level={2}>
-                {currentProgress.pageTitle}
-              </Title>
-            </div>
-            <div className="container main">
-              {currentProgress.content}
-            </div>
-            <div className="container steps">
-              <StepsCounter currentProgress={currentProgress} steps={steps} />
-            </div>
-          </>
-        )}
-      </Main>
+      <Content className="site-layout" style={{ marginTop: 64 }}>
+        <Main currentProgress={currentProgress} currentStep={currentStep} steps={steps} />
+      </Content>
+      <Footer>
+        <FooterContent />
+      </Footer>
     </Layout>
   );
 }
-
-export default Content;

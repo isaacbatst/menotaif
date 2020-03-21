@@ -21,7 +21,7 @@ export default () => {
   return (
     <Row gutter={20} id="first-step-row" justify="center" type="flex">
       {Object.entries(SUBJECT_TYPES).map(([key, { label }], index) => (
-        <Col key={index} xs={12} md={6}>
+        <Col key={index} xs={12} md={6} xl={4}>
           <GradeTypeButton
             label={label}
             type={key}

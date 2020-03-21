@@ -15,8 +15,23 @@
     }
   }
 
+  #average-row {
+    margin: 0.7em 0;
+
+    p {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 0;
+
+      span {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+  }
+
   .grades-row {
-    color: #222;
+    color: #555;
 
     .grade-col {
       text-align: center;

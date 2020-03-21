@@ -80,8 +80,8 @@ export default () => {
   return (
     <div id="second-step-wrapper">
       <GradesRow grades={grades} onInputChange={handleInputChange} />
-      {feedback && <FeedbackAlertRow feedback={feedback}/>}
       {average && <AverageRow average={average} />}
+      {feedback && <FeedbackAlertRow feedback={feedback}/>}
       <ButtonsRow onBackButtonClick={handleBackButtonClick} onSubmitGrades={handleSubmitGrades} buttonDisabled={buttonDisabled} />
     </div>
   );

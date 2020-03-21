@@ -4,99 +4,90 @@
   margin: 20px 0px;
 }
 
-.container {
-  padding: 10px 20px;
-
-  &.banner {
-    background-image: linear-gradient(-90deg, $blue -170%, $primary 100%);
-  }
-
-  &.steps {
-    flex: 1;
-    padding-bottom: 20px;
-  }
-}
-
-#page-progress-title {
-  text-align: center;
-  margin: 0.7em 0;
-  font-size: 1.7em;
-}
-
 .ant-layout {
   background: transparent;
   min-height: 100vh;
-  background-color: $light-green;
+  background-color: white;
   font-size: calc(10px + 2vmin);
-  color: white;
   display: flex;
   flex-direction: column;
-}
 
-.ant-layout-header {
-  background: $red;
-  color: white;
-  box-shadow: 0px -0.9px 9.3px 0.9px rgba(1, 1, 1, 0.75);
-  font-size: 0.7em;
-  text-align: center;
-  position: relative;
-}
-
-.ant-layout-content {
-  flex: 1;
-}
-
-.ant-layout-content h2,
-h1 {
-  color: white;
-}
-
-.ant-steps {
-  margin-top: 10px;
-
-  .ant-steps-item {
-    flex: 1 !important;
-
-    &.ant-steps-item-process{
-      .ant-steps-item-title {
-        color: #222;
-  
-        &::after{
-          background-color: #ddd;
-        }
-      }
-      .ant-steps-item-description {
-        color: #444;
-      }
-    }
-  
-    &.ant-steps-item-finish{
-      .ant-steps-item-title {
-        color: #444;
-      }
-      .ant-steps-item-description {
-        color: #444;
-      }
-    }
-  
-    &.ant-steps-item-wait{
-      .ant-steps-item-title{
-        &::after{
-          background-color: #ddd;
-        }
-      }
-    }  
+  footer {
+    background: $primary;
+    color: white;
+    font-size: 12px;
   }
-}
 
-@media (max-width: 660px) and (min-width: 480px) {
-  .ant-steps-horizontal:not(.ant-steps-label-vertical)
-    .ant-steps-item-description {
-    max-width: 94px;
-  }
-}
-@media (min-width: 480px) {
-  .ant-steps {
+  header {
+    background: $red;
+    color: white;
+    box-shadow: 0px -0.9px 9.3px 0.9px rgba(1, 1, 1, 0.75);
+    font-size: 0.7em;
     text-align: center;
+    position: relative;
+
+    h1 {
+      color: white;
+    }
+  }
+
+  main {
+    flex: 1;
+
+    .container {
+      padding: 10px 20px;
+    
+      &.banner {
+        h2 {
+          text-align: center;
+          margin: 1em 0;
+          font-size: 1.4em;
+          color: white;
+        }
+    
+        background-image: linear-gradient(-90deg, $light-green -250%, $primary 100%);
+      }
+
+      &.main {
+        padding: 10px 20px;
+      }
+    
+      &.steps {
+        flex: 1;
+        padding-bottom: 20px;
+
+        .ant-steps {
+          margin-top: 10px;
+    
+          .ant-steps-item {
+            flex: 1 !important;
+
+            .ant-steps-item {
+              &-title {
+                font-size: 14px;
+              }
+
+              &-description {
+                font-size: 11px;
+              }
+            } 
+          }
+        }
+      }
+    }
+
+    @media (max-width: 660px) and (min-width: 480px) {
+      .ant-steps-horizontal:not(.ant-steps-label-vertical)
+        .ant-steps-item-description {
+        max-width: 94px;
+      }
+    }
+    @media (min-width: 480px) {
+      .ant-steps {
+        text-align: center;
+      }
+    }
   }
 }
+
+
