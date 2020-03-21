@@ -6,7 +6,7 @@ export default ({buttonDisabled, onSubmitGrades: handleSubmitGrades, onBackButto
         className="buttons-row"
         style={{ display: "flex", justifyContent: "center" }}
       >
-        <Col xs={24} sm={12} lg={10} className="text-align-center">
+        <Col xs={24} sm={10} lg={8} xl={6} className="text-align-center">
           <Button
             size="large"
             disabled={buttonDisabled}
