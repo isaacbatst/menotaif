@@ -21,9 +21,8 @@ export default
     },
     {
       id: 2,
-      pageTitle: "DON'T PANIC",
-      stepTitle: "Reflita",
-      description: "Estamos no caminho certo?",
+      stepTitle: "DON'T PANIC",
+      description: "Em letras garrafais e amigáveis :)",
       content: <Title level={2}>60</Title>
     }
   ] 
