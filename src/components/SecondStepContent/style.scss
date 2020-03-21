@@ -48,6 +48,10 @@
       font-size: 1em;
       height: 2.3em;
       margin-bottom: 6px;
+
+      @include md {
+        font-size: 0.8em;
+      }
     }
 
     .ant-btn-danger {
