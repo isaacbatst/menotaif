@@ -8,7 +8,7 @@
   padding: 10px 20px;
 
   &.banner {
-    background-color: $purple;
+    background-image: linear-gradient(-90deg, $blue -170%, $primary 100%);;
   }
 
   &.steps {
