@@ -29,7 +29,7 @@ export default (state = INITIAL_STATE, action) => {
     case Types.CALCULATE_GRADE:
       const { calculateGrades } = createGradesCalculator(state.subject.type);
       const calculatedGrades = calculateGrades(action.payload.grades);
-      console.log(calculatedGrades)
+      
       return update(state, {
         subject: {
           $merge: {
