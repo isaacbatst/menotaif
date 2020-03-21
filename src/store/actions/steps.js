@@ -14,3 +14,8 @@ export const changeInputValue = payload => ({
   type: Types.CHANGE_INPUT_VALUE,
   payload
 })
+
+export const calculateGrade = payload => ({
+  type: Types.CALCULATE_GRADE,
+  payload
+})

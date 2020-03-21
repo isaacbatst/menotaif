@@ -4,12 +4,18 @@ import GRADES_TYPES from "../constants/gradesTypes";
 export default subjectType => {
 
   const calculateAverage = ({ firstGrade, secondGrade, thirdGrade, forthGrade }) => {
-    return Math.round((((firstGrade ?? 0) * 20) + ((secondGrade ?? 0) * 20) + ((thirdGrade ?? 0) * 30) + ((forthGrade ?? 0) * 30)) / 100)
+    switch(subjectType){
+      case SUBJECT_TYPES.annual.type:
+        return Math.round((((firstGrade ?? 0) * 20) + ((secondGrade ?? 0) * 20) + ((thirdGrade ?? 0) * 30) + ((forthGrade ?? 0) * 30)) / 100);
+      case SUBJECT_TYPES.semiannual.type:
+        return Math.round((((firstGrade ?? 0) * 20) + ((secondGrade ?? 0) * 30)) / 50)
+      default:
+        throw new Error('Tipo de matéria inválido')
+    }
   }
 
   const calculateAnnualGrades = grades => {
     const currentAverage = calculateAverage(grades);
-
     if (currentAverage >= 60) {
       return {
         needed: null,
@@ -17,7 +23,7 @@ export default subjectType => {
       }
     }
 
-    if (grades.thirdGrade && !grades.forthGrade) {
+    if ((grades.thirdGrade || grades.thirdGrade === 0) && (grades.forthGrade !== 0 && !grades.forthGrade)) {
       return {
         needed: {
           type: GRADES_TYPES.forthGrade,
@@ -27,7 +33,7 @@ export default subjectType => {
       }
     }
 
-    if (grades.thirdGrade && grades.forthGrade) {
+    if ((grades.thirdGrade || grades.thirdGrade === 0) && (grades.forthGrade || grades.forthGrade === 0)) {
       return {
         needed: {
           type: GRADES_TYPES.finalGrade,
@@ -46,7 +52,6 @@ export default subjectType => {
 
   const calculateSemiannualGrades = grades => { 
     const currentAverage = calculateAverage(grades);
-
     if (currentAverage >= 60) {
       return {
         needed: null,
@@ -54,7 +59,7 @@ export default subjectType => {
       }
     }
 
-    if(grades.firstGrade && !grades.secondGrade){
+    if((grades.firstGrade || grades.firstGrade === 0) && (grades.secondGrade !== 0 & !grades.secondGrade)){
       return {
         needed: {
           type: GRADES_TYPES.secondGrade,
@@ -63,7 +68,7 @@ export default subjectType => {
       }
     }
 
-    if(grades.firstGrade && grades.secondGrade){
+    if((grades.firstGrade || grades.firstGrade === 0) && (grades.secondGrade || grades.secondGrade === 0)){
       return {
         needed: {
           type: GRADES_TYPES.finalGrade,
@@ -72,6 +77,8 @@ export default subjectType => {
         currentAverage
       }
     }
+    
+    throw new Error("Notas inválidas");
 
     function calculateNeededSecondGrade(grades){
       return Math.round((20 * grades.firstGrade - 3000) / -30);

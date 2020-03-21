@@ -1,14 +1,16 @@
+import GRADES_TYPES from './gradesTypes';
+
 export default {
   annual: {
     id: 0,
     label: "Anual",
     type: "annual",
     grades: {
-      firstGrade: { label: "Primeiro bimestre" },
-      secondGrade: { label: "Segundo bimestre" },
-      thirdGrade: { label: "Terceiro bimestre" },
-      forthGrade: { label: "Quarto bimestre" },
-      finalGrade: { label: "Prova final" }
+      [GRADES_TYPES.firstGrade]: {},
+      [GRADES_TYPES.secondGrade]: {},
+      [GRADES_TYPES.thirdGrade]: {},
+      [GRADES_TYPES.forthGrade]: {},
+      [GRADES_TYPES.finalGrade]: {},
     }
   },
   semiannual: {
@@ -16,9 +18,9 @@ export default {
     label: "Semestral",
     type: "semiannual",
     grades: {
-      firstGrade: { label: "Primeiro bimestre" },
-      secondGrade: { label: "Segundo bimestre" },
-      finalGrade: { label: "Prova final" }
+      [GRADES_TYPES.firstGrade]: {},
+      [GRADES_TYPES.secondGrade]: {},
+      [GRADES_TYPES.finalGrade]: {},
     }
   }
 };

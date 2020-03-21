@@ -11,6 +11,10 @@ export default ({ selectedGradeType }) => {
       return false;
     }
 
+    if(!grades.thirdGrade || !grades.thirdGrade.value){
+      return false;
+    }
+
     return true;
   };
 
