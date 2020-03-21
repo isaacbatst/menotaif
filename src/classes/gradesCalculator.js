@@ -18,28 +18,28 @@ export default subjectType => {
     const currentAverage = calculateAverage(grades);
     if (currentAverage >= 60) {
       return {
+        currentAverage,
         needed: null,
-        currentAverage
       }
     }
 
     if ((grades.thirdGrade || grades.thirdGrade === 0) && (grades.forthGrade !== 0 && !grades.forthGrade)) {
       return {
+        currentAverage,
         needed: {
           type: GRADES_TYPES.forthGrade,
           value: calculateNeededForthGrade(grades)
         },
-        currentAverage
       }
     }
 
     if ((grades.thirdGrade || grades.thirdGrade === 0) && (grades.forthGrade || grades.forthGrade === 0)) {
       return {
+        currentAverage,
         needed: {
           type: GRADES_TYPES.finalGrade,
           value: calculateNeededFinalGrade(grades)
         },
-        currentAverage
       }
     }
 
@@ -52,29 +52,32 @@ export default subjectType => {
 
   const calculateSemiannualGrades = grades => { 
     const currentAverage = calculateAverage(grades);
+
     if (currentAverage >= 60) {
       return {
+        currentAverage,
         needed: null,
-        currentAverage
-      }
-    }
-
-    if((grades.firstGrade || grades.firstGrade === 0) && (grades.secondGrade !== 0 & !grades.secondGrade)){
-      return {
-        needed: {
-          type: GRADES_TYPES.secondGrade,
-          value: calculateNeededSecondGrade(grades)
-        }
       }
     }
 
     if((grades.firstGrade || grades.firstGrade === 0) && (grades.secondGrade || grades.secondGrade === 0)){
       return {
+        currentAverage,
         needed: {
           type: GRADES_TYPES.finalGrade,
           value: calculateNeededFinalGrade(grades)
         },
-        currentAverage
+      }
+    }
+
+    
+    if((grades.firstGrade || grades.firstGrade === 0)){
+      return {
+        currentAverage,
+        needed: {
+          type: GRADES_TYPES.secondGrade,
+          value: calculateNeededSecondGrade(grades)
+        },
       }
     }
     
