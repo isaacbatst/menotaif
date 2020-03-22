@@ -17,7 +17,7 @@ export default ({buttonDisabled, onSubmitGrades: handleSubmitGrades, onBackButto
           >
             Calcular
           </Button>
-          <Button type="danger" block onClick={handleBackButtonClick}>
+          <Button type="danger" size="large" block onClick={handleBackButtonClick}>
             Voltar
           </Button>
         </Col>

@@ -8,6 +8,7 @@ export default function GradeInput({ onInputChange }) {
       className="grade-input"
       min={0}
       max={100}
+      size="large"
       type="number"
       step={1}
       onChange={value => onInputChange(value)}
