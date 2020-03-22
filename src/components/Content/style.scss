@@ -16,6 +16,12 @@
     background: $primary;
     color: white;
     font-size: 13px;
+
+    #social-row {
+      button {
+        margin: 0 5px;
+      }
+    }
   }
 
   header {
@@ -40,7 +46,7 @@
       &.banner {
         h2 {
           text-align: center;
-          margin: 0.8em 0;
+          margin: 0.6em 0;
           font-size: 1.3em;
           color: white;
         }
