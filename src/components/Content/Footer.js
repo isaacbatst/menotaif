@@ -2,7 +2,7 @@ import React from 'react';
 import { WhatsappShareButton, TwitterShareButton, TelegramShareButton, FacebookShareButton, WhatsappIcon, TwitterIcon, TelegramIcon, FacebookIcon } from 'react-share'
 
 export default () => {
-  const url = "http://menotaif.codandomuito.com.br";
+  const url = "https://menotaif.codandomuito.com.br";
   const message = "Saca só que massa, dá pra a gente ver quanto precisa tirar pra passar!"
 
   return (
