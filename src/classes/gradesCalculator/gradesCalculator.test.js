@@ -1,6 +1,6 @@
-import createGradesCalculator from "./gradesCalculator";
-import SUBJECT_TYPES from "../constants/subjectTypes";
-import GRADES_TYPES from "../constants/gradesTypes";
+import createGradesCalculator from ".";
+import SUBJECT_TYPES from "../../constants/subjectTypes";
+import GRADES_TYPES from "../../constants/gradesTypes";
 
 describe("tests grades calculator for annual subjects", () => {
   const { calculateGrades } = createGradesCalculator(SUBJECT_TYPES.annual.type)

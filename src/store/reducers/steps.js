@@ -1,5 +1,5 @@
 import update from "immutability-helper";
-import createGradesCalculator from "../../classes/gradesCalculator";
+import createGradesCalculator from "../../classes/gradesCalculator/";
 import generateFeedback from "../../classes/feedbackGenerator";
 import STEPS from "../../constants/steps";
 import Types from "../types/steps";
