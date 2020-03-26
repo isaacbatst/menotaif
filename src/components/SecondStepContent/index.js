@@ -76,13 +76,14 @@ export default () => {
     [key]: grade.value
   }), {})
 
+  const handleFormSubmit = event => event.preventDefault();
 
   return (
-    <div id="second-step-wrapper">
+    <form id="second-step-wrapper" onSubmit={handleFormSubmit}>
       <GradesRow grades={grades} onInputChange={handleInputChange} />
       {average && <AverageRow average={average} />}
       {feedback && <FeedbackAlertRow feedback={feedback}/>}
       <ButtonsRow onBackButtonClick={handleBackButtonClick} onSubmitGrades={handleSubmitGrades} buttonDisabled={buttonDisabled} />
-    </div>
+    </form>
   );
 };

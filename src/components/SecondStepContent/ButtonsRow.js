@@ -13,6 +13,7 @@ export default ({buttonDisabled, onSubmitGrades: handleSubmitGrades, onBackButto
             onClick={handleSubmitGrades}
             id="calc-button"
             block
+            htmlType="submit"
             type="primary"
           >
             Calcular
