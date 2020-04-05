@@ -23,6 +23,7 @@ export default () => {
 
   const { grades: gradesObject } = subject;
   const { needed: neededGrade } = subject;
+  const { failedMinimum: failedMinimumGrade } = subject;
   const { currentAverage: average } = subject;
   const { feedback: positiveFeedback } = subject;
 
@@ -60,6 +61,13 @@ export default () => {
       return
     }
 
+    if(failedMinimumGrade){
+      return setFeedback({
+        type: "error",
+        message: `Ow, que que tá pegando? Sabe que menos de 20 reprova direto, né?`
+      })
+    }
+
     if (average < 60) {
       return setFeedback({
         type: "warning",
@@ -71,7 +79,7 @@ export default () => {
       type: "success",
       message: positiveFeedback
     })
-  }, [average, neededGrade, positiveFeedback])
+  }, [average, neededGrade, positiveFeedback, failedMinimumGrade])
 
   const handleBackButtonClick = () => {
     history.push('/');

@@ -1,12 +1,21 @@
 import GRADES_TYPES from "../../constants/gradesTypes";
 
 export default grades => {
+
   const currentAverage = calculateAverage(grades);
+  if(failedMinimumGrade(grades)){
+    return {
+      currentAverage,
+      needed: null,
+      failedMinimum: true
+    }
+  }
 
   if (currentAverage >= 60) {
     return {
       currentAverage,
       needed: null,
+      failedMinimum: false
     }
   }
 
@@ -17,6 +26,7 @@ export default grades => {
         type: GRADES_TYPES.finalGrade,
         value: calculateNeededFinalGrade(grades)
       },
+      failedMinimum: false
     }
   }
 
@@ -28,10 +38,19 @@ export default grades => {
         type: GRADES_TYPES.secondGrade,
         value: calculateNeededSecondGrade(grades)
       },
+      failedMinimum: false
     }
   }
 
   throw new Error("Notas inválidas");
+
+  function failedMinimumGrade(grades){
+    if(grades.firstGrade < 20 || grades.secondGrade < 20){
+      return true;
+    }
+
+    return false;
+  }
 
   function calculateNeededSecondGrade(grades) {
     return Math.round((20 * grades.firstGrade - 3000) / -30);

@@ -7,8 +7,11 @@ import Types from "../types/steps";
 
 const INITIAL_STATE = {
   steps: STEPS,
-  currentStep: 0,
-  subject: {}
+  subject: {},
+  typed: [
+    false,
+    false
+  ]
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -42,6 +45,14 @@ export default (state = INITIAL_STATE, action) => {
     case Types.SET_SUBJECT:
       return update(state, {
         subject: { $set: slugToSubjectTransposer(action.payload.slug) }
+      })
+    case Types.SET_TYPED: 
+      return update(state, {
+        typed: { 
+          [action.payload.currentStep]: {
+            $set: true
+          }
+        }
       })
     default:
       return state;

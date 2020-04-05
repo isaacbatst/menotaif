@@ -24,3 +24,8 @@ export const setSubject = payload => ({
   type: Types.SET_SUBJECT,
   payload
 })
+
+export const setTyped = payload => ({
+  type: Types.SET_TYPED,
+  payload
+})

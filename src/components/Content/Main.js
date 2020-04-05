@@ -2,8 +2,9 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 import Title from "antd/lib/typography/Title";
 import TypedDescription from './TypedDescription';
+import steps from '../../constants/steps';
 
-export default ({ steps }) => (
+export default () => (
   <Switch>
     {steps.map((step, index) => (
       <Route key={index} exact={step.exact} path={step.path}>
