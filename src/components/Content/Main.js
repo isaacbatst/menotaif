@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 import Title from "antd/lib/typography/Title";
+import TypedDescription from './TypedDescription';
 
 export default ({ steps }) => (
   <Switch>
@@ -15,7 +16,7 @@ export default ({ steps }) => (
           {step.content}
         </section>
         <section className="container description">
-          <p>{step.description}</p>
+          <TypedDescription description={step.description}/>
         </section>
       </Route>
     ))}
