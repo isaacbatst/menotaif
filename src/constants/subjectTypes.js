@@ -5,6 +5,7 @@ export default {
     id: 0,
     label: "Anual",
     type: "annual",
+    average: null,
     slug: "anual",
     grades: {
       [GRADES_TYPES.firstGrade]: {},
@@ -18,6 +19,7 @@ export default {
     id: 1,
     label: "Semestral",
     type: "semiannual",
+    average: null,
     slug: "semestral",
     grades: {
       [GRADES_TYPES.firstGrade]: {},

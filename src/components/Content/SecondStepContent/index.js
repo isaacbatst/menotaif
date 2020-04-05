@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import * as StepsActions from "../../../store/actions/steps";
 import "./style.scss";
 import GradesValidator from "../../../classes/gradesValidator";
+import feedbackGenerator from "../../../classes/feedbackGenerator";
 import FeedbackAlertRow from "./FeedbackAlertRow";
 import AverageRow from "./AverageRow";
 import GradesRow from "./GradesRow";
@@ -20,12 +21,10 @@ export default () => {
   const [gradesValidator, setGradesValidator] = useState(GradesValidator(subjectType));
 
   const subject = useSelector(state => state.steps.subject);
-
   const { grades: gradesObject } = subject;
   const { needed: neededGrade } = subject;
   const { failedMinimum: failedMinimumGrade } = subject;
   const { currentAverage: average } = subject;
-  const { feedback: positiveFeedback } = subject;
 
   const grades = gradesObject ? Object.entries(gradesObject) : [];
 
@@ -58,7 +57,7 @@ export default () => {
 
   useEffect(() => {
     if (!average) {
-      return
+      return setFeedback(null);
     }
 
     if(failedMinimumGrade){
@@ -77,9 +76,9 @@ export default () => {
 
     setFeedback({
       type: "success",
-      message: positiveFeedback
+      message: feedbackGenerator()
     })
-  }, [average, neededGrade, positiveFeedback, failedMinimumGrade])
+  }, [average, neededGrade, failedMinimumGrade])
 
   const handleBackButtonClick = () => {
     history.push('/');
