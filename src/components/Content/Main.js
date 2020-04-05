@@ -6,14 +6,17 @@ export default ({ steps }) => (
   <Switch>
     {steps.map((step, index) => (
       <Route key={index} exact={step.exact} path={step.path}>
-        <div className="container banner">
+        <section className="container banner">
           <Title id="page-progress-title" level={2}>
             {step.pageTitle}
           </Title>
-        </div>
-        <div className="container main">
+        </section>
+        <section className="container main">
           {step.content}
-        </div>
+        </section>
+        <section className="container description">
+          <p>{step.description}</p>
+        </section>
       </Route>
     ))}
   </Switch>

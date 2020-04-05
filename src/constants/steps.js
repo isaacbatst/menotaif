@@ -8,17 +8,17 @@ export default
       id: 0,
       pageTitle: "Escolha o tipo de matéria",
       stepTitle: "Escolha",
-      description: "Tipo da matéria",
+      description: "Escolha com sabedoria, jovem.",
       content: <FirstStepContent />,
       path: "/",
-      exact: true
+      exact: true,
     },
     {
       id: 1,
       pageTitle: "Preencha as notas",
       stepTitle: "Preencha",
-      description: "Quanto você tirou? (ou está pensando em tirar...)",
+      description: "Não entre em pânico!",
       content: <SecondStepContent />,
-      path: "/preencha-suas-notas/:slug"
+      path: "/preencha-suas-notas/:slug",
     },
   ] 
