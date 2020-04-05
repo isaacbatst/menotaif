@@ -19,3 +19,8 @@ export const calculateGrade = payload => ({
   type: Types.CALCULATE_GRADE,
   payload
 })
+
+export const setSubject = payload => ({
+  type: Types.SET_SUBJECT,
+  payload
+})

@@ -5,6 +5,7 @@ export default {
     id: 0,
     label: "Anual",
     type: "annual",
+    slug: "anual",
     grades: {
       [GRADES_TYPES.firstGrade]: {},
       [GRADES_TYPES.secondGrade]: {},
@@ -17,6 +18,7 @@ export default {
     id: 1,
     label: "Semestral",
     type: "semiannual",
+    slug: "semestral",
     grades: {
       [GRADES_TYPES.firstGrade]: {},
       [GRADES_TYPES.secondGrade]: {},

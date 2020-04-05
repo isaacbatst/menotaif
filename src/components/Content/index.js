@@ -9,9 +9,7 @@ import "./style.scss";
 
 export default () => {
   const steps = useSelector(state => state.steps.steps);
-  const currentStep = useSelector(state => state.steps.currentStep);
   const { Header, Content, Footer } = Layout;
-  const currentProgress = steps[currentStep];
 
   return (
     <Layout>
@@ -19,7 +17,7 @@ export default () => {
         <Title>Me nota IF!</Title>
       </Header>
       <Content className="site-layout" style={{ marginTop: 64 }}>
-        <Main currentProgress={currentProgress} currentStep={currentStep} steps={steps} />
+        <Main steps={steps} />
       </Content>
       <Footer>
         <FooterContent />

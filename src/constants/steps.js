@@ -1,7 +1,6 @@
 import React from "react";
-import FirstStepContent from "../components/FirstStepContent";
-import SecondStepContent from "../components/SecondStepContent";
-import Title from "antd/lib/typography/Title";
+import FirstStepContent from "../components/Content/FirstStepContent";
+import SecondStepContent from "../components/Content/SecondStepContent";
 
 export default
   [
@@ -10,19 +9,16 @@ export default
       pageTitle: "Escolha o tipo de matéria",
       stepTitle: "Escolha",
       description: "Tipo da matéria",
-      content: <FirstStepContent />
+      content: <FirstStepContent />,
+      path: "/",
+      exact: true
     },
     {
       id: 1,
       pageTitle: "Preencha as notas",
       stepTitle: "Preencha",
       description: "Quanto você tirou? (ou está pensando em tirar...)",
-      content: <SecondStepContent />
+      content: <SecondStepContent />,
+      path: "/preencha-suas-notas/:slug"
     },
-    {
-      id: 2,
-      stepTitle: "DON'T PANIC",
-      description: "Em letras garrafais e amigáveis :)",
-      content: <Title level={2}>60</Title>
-    }
   ] 

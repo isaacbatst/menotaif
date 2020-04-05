@@ -1,6 +1,6 @@
 import SUBJECT_TYPES from '../constants/subjectTypes';
 
-export default ({ selectedGradeType }) => {
+export default subjectType => {
 
   const validateAnnualGrade = grades => {
     if(!grades.firstGrade || !grades.firstGrade.value){
@@ -28,10 +28,10 @@ export default ({ selectedGradeType }) => {
 
   return {
     validate: grades => {
-      switch(selectedGradeType){
-        case SUBJECT_TYPES.annual.type:
+      switch(subjectType){
+        case SUBJECT_TYPES.annual.slug:
           return validateAnnualGrade(grades);
-        case SUBJECT_TYPES.semiannual.type:
+        case SUBJECT_TYPES.semiannual.slug:
           return validateSemiannualGrade(grades);
         default:
           throw new Error("Tipo de matéria inválido");

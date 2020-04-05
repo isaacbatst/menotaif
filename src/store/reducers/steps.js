@@ -1,13 +1,14 @@
 import update from "immutability-helper";
 import createGradesCalculator from "../../classes/gradesCalculator/";
 import generateFeedback from "../../classes/feedbackGenerator";
+import slugToSubjectTransposer from "../../classes/slugToSubjectTransposer";
 import STEPS from "../../constants/steps";
 import Types from "../types/steps";
 
 const INITIAL_STATE = {
   steps: STEPS,
   currentStep: 0,
-  subject: null
+  subject: {}
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -27,7 +28,7 @@ export default (state = INITIAL_STATE, action) => {
         }
       });
     case Types.CALCULATE_GRADE:
-      const { calculateGrades } = createGradesCalculator(state.subject.type);
+      const { calculateGrades } = createGradesCalculator(action.payload.subjectType);
       const calculatedGrades = calculateGrades(action.payload.grades);
       
       return update(state, {
@@ -37,6 +38,10 @@ export default (state = INITIAL_STATE, action) => {
             feedback: generateFeedback(calculatedGrades)
           }
         }
+      })
+    case Types.SET_SUBJECT:
+      return update(state, {
+        subject: { $set: slugToSubjectTransposer(action.payload.slug) }
       })
     default:
       return state;

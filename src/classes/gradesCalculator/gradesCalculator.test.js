@@ -3,7 +3,7 @@ import SUBJECT_TYPES from "../../constants/subjectTypes";
 import GRADES_TYPES from "../../constants/gradesTypes";
 
 describe("tests grades calculator for annual subjects", () => {
-  const { calculateGrades } = createGradesCalculator(SUBJECT_TYPES.annual.type)
+  const { calculateGrades } = createGradesCalculator(SUBJECT_TYPES.annual.slug)
 
   it("should calculate correctly your needed fourth grade", () => {
     const { needed } = calculateGrades({
@@ -30,7 +30,7 @@ describe("tests grades calculator for annual subjects", () => {
 })
 
 describe("tests grades calculator for semmiannual subjects", () => {
-  const { calculateGrades } = createGradesCalculator(SUBJECT_TYPES.semiannual.type)
+  const { calculateGrades } = createGradesCalculator(SUBJECT_TYPES.semiannual.slug)
 
   it("should calculate correctly your needed second grade", () => {
     const { needed } = calculateGrades({

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import GradeInput from "./GradeInput";
-import GRADES from '../../constants/grades';
+import GRADES from '../../../constants/grades';
 
 export default ({ grades, onInputChange: handleInputChange }) => (
   <Row

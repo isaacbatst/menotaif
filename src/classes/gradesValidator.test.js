@@ -2,9 +2,7 @@ import SUBJECT_TYPES from "../constants/subjectTypes";
 import createGradesValidator from "./gradesValidator";
 
 describe("tests grades validator for annual grades", () => {
-  const gradesValidator = createGradesValidator({
-    selectedGradeType: SUBJECT_TYPES.annual.type
-  });
+  const gradesValidator = createGradesValidator(SUBJECT_TYPES.annual.slug);
 
   it("should return false when first grade is undefined", () => {
     const gradesWithFirstGradeMissing = {
