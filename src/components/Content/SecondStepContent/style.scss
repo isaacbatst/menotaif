@@ -66,14 +66,10 @@
 
   .buttons-row {
     button {
-      font-size: 0.9em;
+      font-size: 1rem;
 
       &#calc-button {
         margin-bottom: 6px;
-  
-        @include md {
-          font-size: 0.8em;
-        }
       }
       
       &.ant-btn-danger {
