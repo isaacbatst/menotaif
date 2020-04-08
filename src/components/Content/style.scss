@@ -56,6 +56,7 @@
         padding-bottom: 1em;
 
         p {
+          font-size: 1rem;
           margin-bottom: 0;
           min-height: 30px;
         }
@@ -78,40 +79,6 @@
         flex-direction: column;
         justify-content: center;
         padding: 10px 20px;
-      }
-    
-      &.steps {
-        flex: 1;
-        padding-top: 0px;
-        padding-bottom: 0px;
-
-        .ant-steps {
-          .ant-steps-item {
-            flex: 1 !important;
-
-            .ant-steps-item {
-              &-title {
-                font-size: 14px;
-              }
-
-              &-description {
-                font-size: 11px;
-              }
-            } 
-          }
-        }
-      }
-    }
-
-    @media (max-width: 660px) and (min-width: 480px) {
-      .ant-steps-horizontal:not(.ant-steps-label-vertical)
-        .ant-steps-item-description {
-        max-width: 94px;
-      }
-    }
-    @media (min-width: 480px) {
-      .ant-steps {
-        text-align: center;
       }
     }
   }
