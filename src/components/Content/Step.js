@@ -1,6 +1,5 @@
 import React from 'react'
 import Title from "antd/lib/typography/Title";
-import TypedDescription from './TypedDescription';
 
 export default ({ step }) => (
   <>
@@ -13,7 +12,7 @@ export default ({ step }) => (
       {step.content}
     </section>
     <section className="container description">
-      <TypedDescription description={step.description} />
+      <p>{step.description[step.description.length - 1]}</p>
     </section>
   </>
 )
