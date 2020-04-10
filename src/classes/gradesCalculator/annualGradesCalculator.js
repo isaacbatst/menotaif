@@ -4,10 +4,19 @@ export default grades => {
 
   const currentAverage = calculateAverage(grades);
 
+  if (failedMinimumGrade(grades)) {
+    return {
+      currentAverage,
+      needed: null,
+      failedMinimum: true
+    }
+  }
+
   if (currentAverage >= 60) {
     return {
       currentAverage,
       needed: null,
+      failedMinimum: false
     }
   }
 
@@ -16,8 +25,9 @@ export default grades => {
       currentAverage,
       needed: {
         type: GRADES_TYPES.forthGrade,
-        value: calculateNeededForthGrade(grades)
+        value: calculateNeededForthGrade(grades),
       },
+      failedMinimum: false
     }
   }
 
@@ -28,10 +38,15 @@ export default grades => {
         type: GRADES_TYPES.finalGrade,
         value: calculateNeededFinalGrade(grades)
       },
+      failedMinimum: false
     }
   }
 
   throw new Error("Notas inválidas");
+
+  function failedMinimumGrade(grades) {
+    return grades.firstGrade < 20 || grades.secondGrade < 20 || grades.thirdGrade < 20 || grades.forthGrade < 20
+  }
 
   function calculateAverage({ firstGrade, secondGrade, thirdGrade, forthGrade }) {
     return Math.round((((firstGrade ?? 0) * 20) + ((secondGrade ?? 0) * 20) + ((thirdGrade ?? 0) * 30) + ((forthGrade ?? 0) * 30)) / 100);
