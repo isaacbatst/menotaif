@@ -45,11 +45,7 @@ export default grades => {
   throw new Error("Notas inválidas");
 
   function failedMinimumGrade(grades){
-    if(grades.firstGrade < 20 || grades.secondGrade < 20){
-      return true;
-    }
-
-    return false;
+    return grades.firstGrade < 20 || grades.secondGrade < 20
   }
 
   function calculateNeededSecondGrade(grades) {
