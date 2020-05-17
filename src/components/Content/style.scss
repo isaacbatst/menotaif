@@ -46,7 +46,7 @@
       padding: 10px 20px;
       
       &.description {
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         text-align: center;
@@ -66,7 +66,6 @@
         h2 {
           text-align: center;
           margin: 0.6em 0;
-          font-size: 1.1em;
           color: white;
         }
     
